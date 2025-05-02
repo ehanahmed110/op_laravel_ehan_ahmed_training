@@ -12,8 +12,9 @@
     <div class="px-8 md:px-4  pt-8 pb-0 bg-white relative z-10 h-screen overflow-hidde">
         <div class="w-[307px] h-[306px] rounded-full bg-[#FF5300] blur-[80px] fixed -left-[190px] -top-[130px]"></div>
         <div class="hidden fixed -top-[58%] -right-[28%] -z-[10] w-[1000px] h-[1000px] rounded-full bg-gradient-to-br from-[#FFD8C2] to-[#FF8036] lg:block"></div>
-        <form action="#">
-            <div class="flex  gap-12">
+        <form method="POST" action="<?php echo e(route('login')); ?>">
+        <?php echo csrf_field(); ?>
+        <div class="flex  gap-12">
          <div class="md:px-12 flex-[1_1_500px] max-w-[700px]">
                     <a href="/">
                         <div class="w-80">
@@ -27,15 +28,15 @@
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col">
                     <label for="email" class="text-sm text-black font-medium mb-1">Email Address</label>
-                    <input name="email_address" type="email" id="email_address" class="h-[50px] rounded-lg bg-[#FFD8C2] border-0 outline-none px-2 text-sm" value="">
+                    <input name="email" type="email" id="email_address" class="h-[50px] rounded-lg bg-[#FFD8C2] border-0 outline-none px-2 text-sm" value="" required>
                 </div>
                 <div class="flex flex-col">
                     <label for="email" class="text-sm text-black font-medium mb-1">Password</label>
                 <div class="flex h-[50px] rounded-lg bg-[#FFD8C2]">
-                    <input name="password" type="password" id="password" class=" border-0 bg-transparent outline-none px-2 text-sm" value="" style="width: calc(100% - 40px);">
+                    <input name="password" type="password" id="password" class=" border-0 bg-transparent outline-none px-2 text-sm" value="" style="width: calc(100% - 40px);" required>
                  
                 </div>
-                <a class="text-[13px] font-bold text-[#5E5C5C] text-end cursor-pointer">Forget password?</a>
+                <a href="<?php echo e(route('password.request')); ?>" class="text-[13px] font-bold text-[#5E5C5C] text-end cursor-pointer">Forget password?</a>
             </div>
         </div>
     
