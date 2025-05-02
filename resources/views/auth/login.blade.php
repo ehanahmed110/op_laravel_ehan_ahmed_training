@@ -1,19 +1,10 @@
-<?php if (isset($component)) { $__componentOriginal69dc84650370d1d4dc1b42d016d7226b = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal69dc84650370d1d4dc1b42d016d7226b = $attributes; } ?>
-<?php $component = App\View\Components\GuestLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('guest-layout'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\App\View\Components\GuestLayout::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
+<x-guest-layout>
   <div id="login">
     <div class="px-8 md:px-4  pt-8 pb-0 bg-white relative z-10 h-screen overflow-hidde">
         <div class="w-[307px] h-[306px] rounded-full bg-[#FF5300] blur-[80px] fixed -left-[190px] -top-[130px]"></div>
         <div class="hidden fixed -top-[58%] -right-[28%] -z-[10] w-[1000px] h-[1000px] rounded-full bg-gradient-to-br from-[#FFD8C2] to-[#FF8036] lg:block"></div>
-        <form method="POST" action="<?php echo e(route('login')); ?>">
-        <?php echo csrf_field(); ?>
+        <form method="POST" action="{{ route('login') }}">
+        @csrf
         <div class="flex  gap-12">
          <div class="md:px-12 flex-[1_1_500px] max-w-[700px]">
                     <a href="/">
@@ -36,7 +27,7 @@
                     <input name="password" type="password" id="password" class=" border-0 bg-transparent outline-none px-2 text-sm" value="" style="width: calc(100% - 40px);" required>
                  
                 </div>
-                <a href="<?php echo e(route('password.request')); ?>" class="text-[13px] font-bold text-[#5E5C5C] text-end cursor-pointer">Forget password?</a>
+                <a href="{{ route('password.request') }}" class="text-[13px] font-bold text-[#5E5C5C] text-end cursor-pointer">Forget password?</a>
             </div>
         </div>
     
@@ -68,15 +59,5 @@
 </div>
        
 </div>
- <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>
-<?php $attributes = $__attributesOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
-<?php unset($__attributesOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>
-<?php $component = $__componentOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
-<?php unset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
-<?php endif; ?>
+</x-guest-layout>
 
-<?php /**PATH C:\xampp\htdocs\example-app\resources\views/auth/login.blade.php ENDPATH**/ ?>
